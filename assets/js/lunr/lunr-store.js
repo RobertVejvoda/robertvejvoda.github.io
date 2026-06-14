@@ -34,4 +34,10 @@ var store = [{
         "tags": ["Camunda"],
         "url": "/dev/using-camunda-dmn-tables-in-parallel-processing",
         "teaser": null
+      },{
+        "title": "Fair Parking System — architecture docs and development plan",
+        "excerpt":"I’ve been working on a side project called Fair Parking System (FPS) — a multi-tenant SaaS platform that replaces the usual “first-come, first-served” email chaos for parking management with a transparent, algorithm-driven allocation system. The core idea is a daily Draw process: employees submit parking requests for the next day,...","categories": ["dev"],
+        "tags": ["architecture","microservices","dapr","dotnet","ddd"],
+        "url": "/dev/fps-architecture-wiki",
+        "teaser": null
       }]
