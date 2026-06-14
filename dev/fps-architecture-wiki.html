@@ -15,8 +15,8 @@
 <meta charset="utf-8">
 
 
-<!-- begin _includes/seo.html --><title>Fair Parking System — architecture docs and development plan - Robert’s blog</title>
-<meta name="description" content="I’ve been working on a side project called Fair Parking System (FPS) — a multi-tenant SaaS platform that replaces the usual “first-come, first-served” email chaos for parking management with a transparent, algorithm-driven allocation system.">
+<!-- begin _includes/seo.html --><title>FairSpot parking allocation project - Robert’s blog</title>
+<meta name="description" content="I have been working on a side project called FairSpot.">
 
 
   <meta name="author" content="Robert Vejvoda">
@@ -28,11 +28,11 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Robert&#39;s blog">
-<meta property="og:title" content="Fair Parking System — architecture docs and development plan">
+<meta property="og:title" content="FairSpot parking allocation project">
 <meta property="og:url" content="https://www.vejvoda.net/dev/fps-architecture-wiki">
 
 
-  <meta property="og:description" content="I’ve been working on a side project called Fair Parking System (FPS) — a multi-tenant SaaS platform that replaces the usual “first-come, first-served” email chaos for parking management with a transparent, algorithm-driven allocation system.">
+  <meta property="og:description" content="I have been working on a side project called FairSpot.">
 
 
 
@@ -276,29 +276,41 @@
 
   <div class="archive">
     
-      <h1 id="page-title" class="page__title">Fair Parking System — architecture docs and development plan</h1>
+      <h1 id="page-title" class="page__title">FairSpot parking allocation project</h1>
     
     
 
-<p>I’ve been working on a side project called <strong>Fair Parking System (FPS)</strong> — a multi-tenant SaaS platform that replaces the usual “first-come, first-served” email chaos for parking management with a transparent, algorithm-driven allocation system.</p>
+<p>I have been working on a side project called <strong>FairSpot</strong>.</p>
 
-<p>The core idea is a daily <strong>Draw process</strong>: employees submit parking requests for the next day, and a weighted lottery runs nightly to assign slots fairly. The algorithm gives more weight to those who park least often, so occasional parkers aren’t constantly crowded out by daily commuters.</p>
+<p>It started with a simple problem: when a company has fewer parking spaces than people who want to use them, email requests and manual decisions quickly become messy. The goal of FairSpot is to make this process more transparent.</p>
 
-<h2 id="whats-in-the-architecture">What’s in the architecture</h2>
+<p>Employees request parking for a given day. The system then runs a <strong>Draw</strong> and allocates available places according to configured rules. People who did not get a place recently should have a better chance next time. HR can see what happened, employees can see their own result, and auditors should be able to trace why a decision was made.</p>
 
-<p>The system is designed as event-driven microservices on .NET and Kubernetes, with <a href="https://dapr.io">Dapr</a> handling state management, pub/sub messaging, and — most interestingly — <strong>Dapr Workflows</strong> for the Draw process itself. Long-running, durable orchestration is exactly the right fit for something that needs to lock slots, run an allocation algorithm, persist results, and fire notifications — all while surviving a service restart mid-flight.</p>
+<p>Technically, I use it to try a few ideas in practice:</p>
 
-<p>Key services: Booking, Identity, Profile, Customer, Billing, Notification, Audit, Reporting, and Configuration. Each follows onion architecture with a pure domain layer that has no infrastructure dependencies, which makes the allocation algorithm straightforward to unit-test in isolation.</p>
+<ul>
+  <li>.NET services with clear boundaries</li>
+  <li>Dapr for state, pub/sub, service calls, and workflow</li>
+  <li>role-specific screens for employees, HR, tenant admins, and auditors</li>
+  <li>architecture documentation that is useful during implementation, not written after the fact</li>
+</ul>
 
-<h2 id="the-architecture-wiki">The architecture wiki</h2>
+<p>The product documentation is here:</p>
 
-<p>I’ve published the full architecture documentation — business layer, application layer, technology decisions, and the new development plan — as a Docsify site:</p>
+<p><strong><a href="https://www.vejvoda.net/fairspot/">https://www.vejvoda.net/fairspot/</a></strong></p>
 
-<p><strong><a href="https://www.vejvoda.net/FPS-wiki/">https://www.vejvoda.net/FPS-wiki/</a></strong></p>
+<p>I also moved the architecture documentation into a separate site:</p>
 
-<p>It covers the weighted lottery algorithm, Dapr Workflow design for the Draw process, the phased development plan, and a list of open questions and discrepancies I found while reviewing the docs (including the fact that the original Dapr version listed predates Dapr Workflows by several major releases).</p>
+<p><strong><a href="https://www.vejvoda.net/fairspot-architecture/">https://www.vejvoda.net/fairspot-architecture/</a></strong></p>
 
-<p>Source on GitHub: <a href="https://github.com/RobertVejvoda/FPS-wiki">RobertVejvoda/FPS-wiki</a>, <a href="https://github.com/RobertVejvoda/FPS.code">RobertVejvoda/FPS.code</a>.</p>
+<p>That architecture site is where I keep the higher-level view: requirements, decisions, risks, constraints, target architecture, transition states, and the implementation roadmap. The detailed delivery work still belongs to GitHub issues and pull requests.</p>
+
+<p>Source code and architecture repository:</p>
+
+<ul>
+  <li><a href="https://github.com/RobertVejvoda/fairspot">RobertVejvoda/fairspot</a></li>
+  <li><a href="https://github.com/RobertVejvoda/fairspot-architecture">RobertVejvoda/fairspot-architecture</a></li>
+</ul>
 
 
 <ul class="taxonomy__index">
@@ -353,7 +365,7 @@
     
     <h2 class="archive__item-title no_toc p-name" itemprop="headline">
       
-        <a class="u-url" href="/dev/fps-architecture-wiki" rel="permalink">Fair Parking System — architecture docs and development plan
+        <a class="u-url" href="/dev/fps-architecture-wiki" rel="permalink">FairSpot parking allocation project
 </a>
       
     </h2>
@@ -379,7 +391,9 @@
   </p>
 
 
-    <p class="archive__item-excerpt p-summary" itemprop="description">I’ve been working on a side project called Fair Parking System (FPS) — a multi-tenant SaaS platform that replaces the usual “first-come, first-served” email ...</p>
+    <p class="archive__item-excerpt p-summary" itemprop="description">I have been working on a side project called FairSpot.
+
+</p>
   </article>
 </div>
 
