@@ -15,8 +15,8 @@
 <meta charset="utf-8">
 
 
-<!-- begin _includes/seo.html --><title>FairSpot parking allocation project - Robert’s blog</title>
-<meta name="description" content="I have been working on a side project called FairSpot.">
+<!-- begin _includes/seo.html --><title>FairSpot: fair workplace parking allocation - Robert’s blog</title>
+<meta name="description" content="Updated June 2026.">
 
 
   <meta name="author" content="Robert Vejvoda">
@@ -28,11 +28,11 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Robert&#39;s blog">
-<meta property="og:title" content="FairSpot parking allocation project">
+<meta property="og:title" content="FairSpot: fair workplace parking allocation">
 <meta property="og:url" content="https://www.vejvoda.net/dev/fps-architecture-wiki">
 
 
-  <meta property="og:description" content="I have been working on a side project called FairSpot.">
+  <meta property="og:description" content="Updated June 2026.">
 
 
 
@@ -276,36 +276,45 @@
 
   <div class="archive">
     
-      <h1 id="page-title" class="page__title">FairSpot parking allocation project</h1>
+      <h1 id="page-title" class="page__title">FairSpot: fair workplace parking allocation</h1>
     
     
+
+<p><strong>Updated June 2026.</strong></p>
 
 <p>I have been working on a side project called <strong>FairSpot</strong>.</p>
 
-<p>It started with a simple problem: when a company has fewer parking spaces than people who want to use them, email requests and manual decisions quickly become messy. The goal of FairSpot is to make this process more transparent.</p>
+<p>FairSpot helps companies allocate limited workplace parking in a fair and explainable way. Employees request parking for a day, the company defines clear rules, and the system allocates available spaces in a way that can be explained afterwards.</p>
 
-<p>Employees request parking for a given day. The system then runs a <strong>Draw</strong> and allocates available places according to configured rules. People who did not get a place recently should have a better chance next time. HR can see what happened, employees can see their own result, and auditors should be able to trace why a decision was made.</p>
+<p>The main idea is simple: people should understand why they did or did not get a space, HR should not have to manage parking by email, and auditors should be able to trace important decisions when needed.</p>
+
+<p>The current focus is workplace parking. The same model can later be used for other limited workplace resources, such as desks or seats, but parking is the scenario I am building first.</p>
 
 <p>Technically, I use it to try a few ideas in practice:</p>
 
 <ul>
   <li>.NET services with clear boundaries</li>
-  <li>Dapr for state, pub/sub, service calls, and workflow</li>
+  <li>Dapr for state, pub/sub, service calls, scheduling, and workflows</li>
   <li>role-specific screens for employees, HR, tenant admins, and auditors</li>
-  <li>architecture documentation that is useful during implementation, not written after the fact</li>
+  <li>explainable allocation logic with audit evidence</li>
+  <li>local Docker-based deployment and a path toward hosted operation</li>
 </ul>
 
-<p>The product documentation is here:</p>
+<p>The public product documentation is here:</p>
 
 <p><strong><a href="https://www.vejvoda.net/fairspot/">https://www.vejvoda.net/fairspot/</a></strong></p>
 
-<p>I also moved the architecture documentation into a separate site:</p>
+<p>The source code is open here:</p>
+
+<p><strong><a href="https://github.com/RobertVejvoda/fairspot">https://github.com/RobertVejvoda/fairspot</a></strong></p>
+
+<p>Architecture material is no longer maintained as a blog post. It changes as the product evolves, so I keep it in a dedicated repository and use GitHub issues and pull requests for delivery work.</p>
+
+<p>The architecture repository is public, but treat it as a working architecture repository rather than a polished product page:</p>
 
 <p><strong><a href="https://www.vejvoda.net/fairspot-architecture/">https://www.vejvoda.net/fairspot-architecture/</a></strong></p>
 
-<p>That architecture site is where I keep the higher-level view: requirements, decisions, risks, constraints, target architecture, transition states, and the implementation roadmap. The detailed delivery work still belongs to GitHub issues and pull requests.</p>
-
-<p>Source code and architecture repository:</p>
+<p>Repository links:</p>
 
 <ul>
   <li><a href="https://github.com/RobertVejvoda/fairspot">RobertVejvoda/fairspot</a></li>
@@ -365,7 +374,7 @@
     
     <h2 class="archive__item-title no_toc p-name" itemprop="headline">
       
-        <a class="u-url" href="/dev/fps-architecture-wiki" rel="permalink">FairSpot parking allocation project
+        <a class="u-url" href="/dev/fps-architecture-wiki" rel="permalink">FairSpot: fair workplace parking allocation
 </a>
       
     </h2>
@@ -391,7 +400,7 @@
   </p>
 
 
-    <p class="archive__item-excerpt p-summary" itemprop="description">I have been working on a side project called FairSpot.
+    <p class="archive__item-excerpt p-summary" itemprop="description">Updated June 2026.
 
 </p>
   </article>

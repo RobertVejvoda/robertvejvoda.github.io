@@ -35,8 +35,8 @@ var store = [{
         "url": "/dev/using-camunda-dmn-tables-in-parallel-processing",
         "teaser": null
       },{
-        "title": "FairSpot parking allocation project",
-        "excerpt":"I have been working on a side project called FairSpot. It started with a simple problem: when a company has fewer parking spaces than people who want to use them, email requests and manual decisions quickly become messy. The goal of FairSpot is to make this process more transparent. Employees...","categories": ["dev"],
+        "title": "FairSpot: fair workplace parking allocation",
+        "excerpt":"Updated June 2026. I have been working on a side project called FairSpot. FairSpot helps companies allocate limited workplace parking in a fair and explainable way. Employees request parking for a day, the company defines clear rules, and the system allocates available spaces in a way that can be explained...","categories": ["dev"],
         "tags": ["architecture","microservices","dapr","dotnet","ddd"],
         "url": "/dev/fps-architecture-wiki",
         "teaser": null

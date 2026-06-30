@@ -1,34 +1,43 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="https://www.vejvoda.net/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.vejvoda.net/" rel="alternate" type="text/html" /><updated>2026-06-14T17:09:05+02:00</updated><id>https://www.vejvoda.net/feed.xml</id><title type="html">Robert’s blog</title><subtitle>Enterprise architecture notes on systems that work at scale, practical principles, and lessons from real projects.</subtitle><author><name>Robert Vejvoda</name></author><entry><title type="html">FairSpot parking allocation project</title><link href="https://www.vejvoda.net/dev/fps-architecture-wiki" rel="alternate" type="text/html" title="FairSpot parking allocation project" /><published>2026-05-09T10:00:00+02:00</published><updated>2026-05-09T10:00:00+02:00</updated><id>https://www.vejvoda.net/dev/fps-architecture-wiki</id><content type="html" xml:base="https://www.vejvoda.net/dev/fps-architecture-wiki">&lt;p&gt;I have been working on a side project called &lt;strong&gt;FairSpot&lt;/strong&gt;.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="https://www.vejvoda.net/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.vejvoda.net/" rel="alternate" type="text/html" /><updated>2026-06-30T19:41:56+02:00</updated><id>https://www.vejvoda.net/feed.xml</id><title type="html">Robert’s blog</title><subtitle>Enterprise architecture notes on systems that work at scale, practical principles, and lessons from real projects.</subtitle><author><name>Robert Vejvoda</name></author><entry><title type="html">FairSpot: fair workplace parking allocation</title><link href="https://www.vejvoda.net/dev/fps-architecture-wiki" rel="alternate" type="text/html" title="FairSpot: fair workplace parking allocation" /><published>2026-05-09T10:00:00+02:00</published><updated>2026-05-09T10:00:00+02:00</updated><id>https://www.vejvoda.net/dev/fps-architecture-wiki</id><content type="html" xml:base="https://www.vejvoda.net/dev/fps-architecture-wiki">&lt;p&gt;&lt;strong&gt;Updated June 2026.&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;It started with a simple problem: when a company has fewer parking spaces than people who want to use them, email requests and manual decisions quickly become messy. The goal of FairSpot is to make this process more transparent.&lt;/p&gt;
+&lt;p&gt;I have been working on a side project called &lt;strong&gt;FairSpot&lt;/strong&gt;.&lt;/p&gt;
 
-&lt;p&gt;Employees request parking for a given day. The system then runs a &lt;strong&gt;Draw&lt;/strong&gt; and allocates available places according to configured rules. People who did not get a place recently should have a better chance next time. HR can see what happened, employees can see their own result, and auditors should be able to trace why a decision was made.&lt;/p&gt;
+&lt;p&gt;FairSpot helps companies allocate limited workplace parking in a fair and explainable way. Employees request parking for a day, the company defines clear rules, and the system allocates available spaces in a way that can be explained afterwards.&lt;/p&gt;
+
+&lt;p&gt;The main idea is simple: people should understand why they did or did not get a space, HR should not have to manage parking by email, and auditors should be able to trace important decisions when needed.&lt;/p&gt;
+
+&lt;p&gt;The current focus is workplace parking. The same model can later be used for other limited workplace resources, such as desks or seats, but parking is the scenario I am building first.&lt;/p&gt;
 
 &lt;p&gt;Technically, I use it to try a few ideas in practice:&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;.NET services with clear boundaries&lt;/li&gt;
-  &lt;li&gt;Dapr for state, pub/sub, service calls, and workflow&lt;/li&gt;
+  &lt;li&gt;Dapr for state, pub/sub, service calls, scheduling, and workflows&lt;/li&gt;
   &lt;li&gt;role-specific screens for employees, HR, tenant admins, and auditors&lt;/li&gt;
-  &lt;li&gt;architecture documentation that is useful during implementation, not written after the fact&lt;/li&gt;
+  &lt;li&gt;explainable allocation logic with audit evidence&lt;/li&gt;
+  &lt;li&gt;local Docker-based deployment and a path toward hosted operation&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;The product documentation is here:&lt;/p&gt;
+&lt;p&gt;The public product documentation is here:&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;&lt;a href=&quot;https://www.vejvoda.net/fairspot/&quot;&gt;https://www.vejvoda.net/fairspot/&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;I also moved the architecture documentation into a separate site:&lt;/p&gt;
+&lt;p&gt;The source code is open here:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;https://github.com/RobertVejvoda/fairspot&quot;&gt;https://github.com/RobertVejvoda/fairspot&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Architecture material is no longer maintained as a blog post. It changes as the product evolves, so I keep it in a dedicated repository and use GitHub issues and pull requests for delivery work.&lt;/p&gt;
+
+&lt;p&gt;The architecture repository is public, but treat it as a working architecture repository rather than a polished product page:&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;&lt;a href=&quot;https://www.vejvoda.net/fairspot-architecture/&quot;&gt;https://www.vejvoda.net/fairspot-architecture/&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;That architecture site is where I keep the higher-level view: requirements, decisions, risks, constraints, target architecture, transition states, and the implementation roadmap. The detailed delivery work still belongs to GitHub issues and pull requests.&lt;/p&gt;
-
-&lt;p&gt;Source code and architecture repository:&lt;/p&gt;
+&lt;p&gt;Repository links:&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://github.com/RobertVejvoda/fairspot&quot;&gt;RobertVejvoda/fairspot&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://github.com/RobertVejvoda/fairspot-architecture&quot;&gt;RobertVejvoda/fairspot-architecture&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Robert Vejvoda</name></author><category term="dev" /><category term="architecture" /><category term="microservices" /><category term="dapr" /><category term="dotnet" /><category term="ddd" /><summary type="html">I have been working on a side project called FairSpot.</summary></entry><entry><title type="html">Using Camunda DMN tables in parallel processing</title><link href="https://www.vejvoda.net/dev/using-camunda-dmn-tables-in-parallel-processing" rel="alternate" type="text/html" title="Using Camunda DMN tables in parallel processing" /><published>2023-12-10T16:15:32+01:00</published><updated>2023-12-10T16:15:32+01:00</updated><id>https://www.vejvoda.net/dev/using-camunda-dmn-tables-in-parallel-processing</id><content type="html" xml:base="https://www.vejvoda.net/dev/using-camunda-dmn-tables-in-parallel-processing">&lt;p&gt;Last time I tackled simple DMN tables using Collect(Sum) policy in demo called &lt;a href=&quot;https://github.com/RobertVejvoda/customer-scoring-camunda&quot;&gt;Customer Scoring&lt;/a&gt;.&lt;/p&gt;
+&lt;/ul&gt;</content><author><name>Robert Vejvoda</name></author><category term="dev" /><category term="architecture" /><category term="microservices" /><category term="dapr" /><category term="dotnet" /><category term="ddd" /><summary type="html">Updated June 2026.</summary></entry><entry><title type="html">Using Camunda DMN tables in parallel processing</title><link href="https://www.vejvoda.net/dev/using-camunda-dmn-tables-in-parallel-processing" rel="alternate" type="text/html" title="Using Camunda DMN tables in parallel processing" /><published>2023-12-10T16:15:32+01:00</published><updated>2023-12-10T16:15:32+01:00</updated><id>https://www.vejvoda.net/dev/using-camunda-dmn-tables-in-parallel-processing</id><content type="html" xml:base="https://www.vejvoda.net/dev/using-camunda-dmn-tables-in-parallel-processing">&lt;p&gt;Last time I tackled simple DMN tables using Collect(Sum) policy in demo called &lt;a href=&quot;https://github.com/RobertVejvoda/customer-scoring-camunda&quot;&gt;Customer Scoring&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Next demo shows how to use #Camunda DMN tables for parallel processing and FEEL expressions. No glue, no source code, all on Zeebe side.&lt;/p&gt;
 
